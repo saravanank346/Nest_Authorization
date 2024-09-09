@@ -34,7 +34,7 @@ export class AbilityService {
       .leftJoin('role_permissions_mapping', 'rpm', 'rpm.roleId = r.id')
       .leftJoin('permissions', 'p', 'rpm.permissionId = p.id')
       .leftJoin('objects', 'o', 'p.objectId = o.id')
-      .where('user.id = :userId', { userId: user.id })
+      .where('user.id = :userId', { userId: user })
       .select([
         'user.id',
         'r.name AS role_name',
